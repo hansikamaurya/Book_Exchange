@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse Books</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <h1>Books Available:</h1>
+
+    {% if books %}
+
+        {% for book in books %}
+
+            <div class="book">
+
+                <h2>{{ book["title"] }}</h2>
+
+                <p>Author: {{ book["author"] }}</p>
+
+                <p>Owner: {{ book["owner"] }}</p>
+
+                <p>Email: {{ book["email"] }}</p>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ book['email'] }}"> 
+                    Contact Owner
+                </a>
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No books available currently.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/home">Back to Home</a>
+
+</body>
+</html>
